@@ -2,7 +2,7 @@
 function floorNumbers(float $float, int $precision)
 {
   $split = explode(".", $float);
-  $split[1] = substr_replace($split[1], "", $precision,  strlen($split[1] - 1));
+  $split[1] = substr_replace($split[1], ".", $precision, 0);
 
   if ($split[0] >= 0) {
     $split[1] = floor($split[1]);
@@ -12,4 +12,5 @@ function floorNumbers(float $float, int $precision)
   $output = $split[0] . "." . $split[1];
   return $output;
 }
-echo floorNumbers(-1.45454545459, 4);
+echo floorNumbers(-1.45499, 4) . "</br>";
+echo floorNumbers(-20.21456, 3);
